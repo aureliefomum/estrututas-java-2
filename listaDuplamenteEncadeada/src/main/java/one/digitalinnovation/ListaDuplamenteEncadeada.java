@@ -15,6 +15,31 @@ public class ListaDuplamenteEncadeada <T> {
         this.tamanhoLista = 0;
     }
 
+    public T get(int index){
+        return this.getNo(index).getConteudo();
+    }
+
+    public void add(T elemento){
+        NoDuplo<T> novoNo = new NoDuplo<>(elemento);
+        //set newly added node's next node reference to null because you're adding it to the end of the list'
+        novoNo.setNoProximo(null);
+        //set newly added node's previous node reference to the previous last node that it was appended to(Your new node is the new last node)
+        novoNo.setNoPrevio(ultimoNo);
+        if(primeiroNo == null){
+            primeiroNo = novoNo;
+        }
+
+        if(ultimoNo!=null){
+            ultimoNo.setNoProximo(novoNo);
+        }
+        //but if last node is empty or null set the new Node to last node
+        ultimoNo = novoNo;
+        //the add method also keeps track of list's size
+        tamanhoLista++;
+
+
+    }
+
     //create getNo method which you will later use in other methods like remove, add, etc
     private NoDuplo<T> getNo(int index){
         //save first node in noAuxiliar
@@ -31,6 +56,6 @@ public class ListaDuplamenteEncadeada <T> {
 
 
     public int size(){
-        return tamanhoLista;
+        return this.tamanhoLista;
     }
 }
