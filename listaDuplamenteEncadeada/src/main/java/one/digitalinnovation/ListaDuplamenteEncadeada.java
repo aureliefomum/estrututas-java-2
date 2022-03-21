@@ -58,7 +58,36 @@ public class ListaDuplamenteEncadeada <T> {
         }
         tamanhoLista++;
 
+    }
+    public void remove(int index){
+        //check if you are on first node of the list
+        if(index == 0){
+           // point first node to second node
+            primeiroNo = primeiroNo.getNoProximo();
+          //check if there is a second node
+          if(primeiroNo != null)  {
+              //if yes, remove reference to previous node
+              primeiroNo.setNoPrevio(null);
+          }
+        }else{
+            //if we're not dealing with first node
+            //grab the node at the given index and keep it in noAuxiliar
+            noDuplo <T> noAuxiliar = getNo(index);
+            //link up the 2 nodes that were flanking the noAuxiliar
 
+            noAuxiliar.getNoPrevio().setNoProximo(noAuxiliar.getNoProximo());
+
+            //check whether node removed(noAuxiliar) is not last node
+
+            if(noAuxiliar != ultimoNo){
+                noAuxiliar.getNoProximo().setNoPrevio(noAuxiliar.getNoPrevio());
+            }
+        }else{
+            ultimoNo = noAuxiliar;
+        }
+
+
+        this.tamanhoLista--;
     }
 
     //create getNo method which you will later use in other methods like remove, add, etc
