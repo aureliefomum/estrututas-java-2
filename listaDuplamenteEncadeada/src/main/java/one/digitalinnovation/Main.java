@@ -13,5 +13,14 @@ public class Main {
         novaListaDupla.add("c7");
 
         System.out.println(novaListaDupla);
+
+        novaListaDupla.remove(3);
+        System.out.println("depois de remover o No 3: " + novaListaDupla);
+
+        novaListaDupla.add(3,"99");
+        System.out.println("depois de adicionar " + "99" + " No Indice 3: " + novaListaDupla);
+        System.out.println("get No no indice 3: " + novaListaDupla.get(3));
+
+
     }
 }
