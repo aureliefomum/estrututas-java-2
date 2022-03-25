@@ -71,11 +71,25 @@ public class ListaCircular<T> {
     }
 
     public boolean isEmpty(){
-        return this.tamanhoLista == 0 ? true: false;
+        return this.tamanhoLista == 0;
     }
 
     public int size(){
         return this.tamanhoLista;
     }
 
+
+    @Override
+    public String toString() {
+        String strRetorno = "";
+
+        No<T> noAuxiliar = this.cauda;
+        for(int i = 0;i < this.size(); i++){
+            strRetorno += "[No{conteudo=" + noAuxiliar.getConteudo() + "}]--->";
+            noAuxiliar = noAuxiliar.getNoProximo();
+        }
+
+        strRetorno += this.size() != 0 ? "(Retorna ao inicio)" :"[]";
+        return strRetorno;
+    }
 }
