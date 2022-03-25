@@ -4,7 +4,31 @@ public class ListaCircular<T> {
 
     private No<T> cabeca;
     private No<T> cauda;
-    private No<T> tamanhoLista;
+    private int tamanhoLista;
+
+    public ListaCircular() {
+        this.cauda = null;
+        this.cabeca = null;
+        this.tamanhoLista = 0;
+    }
+
+    public void add(T conteudo){
+        No <T> novoNo = new No<>(conteudo);
+        if(this.tamanhoLista == 0){
+            this.cabeca = novoNo;
+            this.cauda = this.cabeca;
+            this.cabeca.setNoProximo(cauda);
+        }else{
+            //if list is not empty, attach new node to tail
+            novoNo.setNoProximo(this.cauda);
+            //set head node's next node to new node
+            this.cabeca.setNoProximo(novoNo);
+            //set tail node to new node
+            this.cauda = novoNo;
+        }
+
+        this.tamanhoLista++;
+    }
 
     public void remove(int index){
         if(index >= this.tamanhoLista)
@@ -12,7 +36,7 @@ public class ListaCircular<T> {
         No<T> noAuxiliar = this.cauda;
         //check if node to be removed is tail of list
         if(index ==0){
-            //if yes, mke the next node, the tail node
+            //if yes, make the next node, the tail node
             this.cauda = this.cauda.getNoProximo();
             //link the head to the new tail
             this.cabeca.setNoProximo(this.cauda);
