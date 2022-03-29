@@ -44,10 +44,10 @@ public class ListaCircular<T> {
             this.cauda.setNoProximo(this.cauda.getNoProximo().getNoProximo());
         }else{
             //if index is neither 0 nor 1, loop through list up till node at given index
-            for(int=0; i < index -1;i++){
+            for(int i=0; i < index -1;i++){
                 noAuxiliar = noAuxiliar.getNoProximo();
             }
-            noAuxiliar.setNoProximo(noAuxiliar.getNoProximo().noAuxiliar.getNoProximo());
+            noAuxiliar.setNoProximo(noAuxiliar.getNoProximo().getNoProximo());
         }
         this.tamanhoLista--;
     }
