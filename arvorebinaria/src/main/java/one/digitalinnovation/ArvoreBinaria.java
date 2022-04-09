@@ -67,7 +67,7 @@ public class ArvoreBinaria<T extends Comparable<T>> {
             BinNo<T> pai = null;
             BinNo<T> filho = null;
             BinNo<T> temp = null;
-//while current node is not nill and not equal to 'conteudo' passed in as an argument,
+//while current node is not null and not equal to 'conteudo' passed in as an argument,
             //keep running the while loop
             while (atual != null && !atual.getConteudo().equals(conteudo)){
              pai = atual;
@@ -101,7 +101,11 @@ public class ArvoreBinaria<T extends Comparable<T>> {
                     raiz=filho;
                }
             }else if(atual.getNoDir()==null){
-
+                if(pai.getNoEsq()==atual){
+                    pai.setNoEsq(atual.getNoEsq());
+                }else{
+                    pai.setNoDir(atual.getNoEsq());
+                }
             }else if(atual.getNoEsq()==null){
 
             }else{
