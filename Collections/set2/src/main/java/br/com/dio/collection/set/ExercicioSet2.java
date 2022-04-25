@@ -11,4 +11,7 @@ Ao final, exiba as linguagens no console, um abaixo da outra.
 */
 
 public class ExercicioSet2 {
+    public static void main(String[] args) {
+        
+    }
 }
