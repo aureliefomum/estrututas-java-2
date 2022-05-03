@@ -73,6 +73,11 @@ public class ExercicioStreamAPI {
 //                .ifPresent(System.out::println);
 
 //        System.out.println("Remova os valores ímpares: ");
+        //PRIMEIRO TRANSFORME ALISTA DE STRING EM LISTA DE INTEGERS PORQUE O STREAM NÃO MODIFICA OS STRINGS
+        List<Integer> numerosAleatorios1 = numerosAleatorios.stream()
+                .map(Integer::parseInt).collect(Collectors.toList());
+        //NÃ VAMOS USAR UM METODO DE STREAM PORQUE O STREAM NÃO ALTERA AS ESTRUTURAS, VAMOS USAR REMOVEIF QUE É UM
+        // MÉTODO DE LIST
 //        numerosAleatorios1.removeIf(integer -> integer % 2 != 0);
 //        System.out.println(numerosAleatorios1);
 //        numerosAleatoriosInteger.removeIf(i -> (i % 2 != 0));
